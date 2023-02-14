@@ -1,9 +1,10 @@
+h = 1
+fo <- y ~ sat * x ^ h / (k + x ^ h) #Y = Bmax  x [Tm]h/(Kdh + [Tm]h)
+
 df0   <- read.csv(file = "TM1.txt", header = TRUE,  sep = "\t",  stringsAsFactors = FALSE)
 df <- data.frame(x=df0[,2],y=df0[,1])
 
-h = 0.8
-fo <- y ~ x ^ h / (k + x ^ h) #Y = Bmax  x [Tm]h/(Kdh + [Tm]h)
-fm <- nls(fo, data=df,start = list (k = 1))
+fm <- nls(fo, data=df,start = list (k = 1,sat = 1))
 fm1 <- fm
 summary(fm)
 
@@ -22,8 +23,7 @@ summary(fm)
 df0   <- read.csv(file = "TM2.txt", header = TRUE,  sep = "\t",  stringsAsFactors = FALSE)
 df <- data.frame(x=df0[,2],y=df0[,1])
 
-fo <- y ~ x ^ h / (k + x ^ h) #Y = Bmax  x [Tm]h/(Kdh + [Tm]h)
-fm <- nls(fo, data=df,start = list (k = 1))
+fm <- nls(fo, data=df,start = list (k = 1, sat = 1))
 fm2 <- fm
 summary(fm)
 
