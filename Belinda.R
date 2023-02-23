@@ -40,27 +40,37 @@ sat2 <- summary(fm2)$parameters[2]
 summary(fm1)
 summary(fm2)
 
-# library(httpgd)
+library(httpgd)
 hgd()
  .vsc.browser(httpgd::hgd_url(), viewer = "Beside")
 
-x_axis <- (1:100) * 4.0 * 0.01
+x_max <- 24
+x_axis <- (1:100) * x_max * 0.01
 
 #x11()
 
 par(oma=c(2,2,2,2))
 par(mar=c(6,6,1,1))
-plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
+
+  col_list =  c("#00AFBB", "#E7B800", "#FC4E07")
+
+plot(df1$x, df1$y / sat1, cex = 2, pch=19, col = col_list[3], xlim = c(0, x_max), ylim = c(0, 1), 
+#plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, x_max), ylim = c(0, 1), 
 ###plot(df1$x, df1$y, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
+
+
 xlab = '	Free Tm (µM) ', 
 ylab = 'Fractional Saturation (Tm/Actin)',
      cex.lab = 2.5,
      cex.axis = 2,
      cex.main = 1,
      cex.sub = 1)
+
+box(lwd=2.5)
+
 lines(x_axis, predict(fm1, newdata = list(x = x_axis)) / sat1, col = 2, lwd = 3)
 lines(x_axis, predict(fm2, newdata = list(x = x_axis)) / sat2, col = 3, lwd = 3)
-points(df2$x, df2$y / sat2, pch = 19, col = 3)
+points(df2$x, df2$y / sat2, cex = 1.9, pch = 19, col = 3)
 
 #lines(x_axis, predict(fm1, newdata = list(x = x_axis)) , col = 2, lwd = 3)
 #lines(x_axis, predict(fm2, newdata = list(x = x_axis)) , col = 3, lwd = 3)
