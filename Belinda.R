@@ -44,7 +44,7 @@ library(httpgd)
 hgd()
  .vsc.browser(httpgd::hgd_url(), viewer = "Beside")
 
-x_max <- 24
+x_max <- 5
 x_axis <- (1:100) * x_max * 0.01
 
 #x11()
@@ -54,7 +54,7 @@ par(mar=c(6,6,1,1))
 
   col_list =  c("#00AFBB", "#E7B800", "#FC4E07")
 
-plot(df1$x, df1$y / sat1, cex = 2, pch=19, col = col_list[3], xlim = c(0, x_max), ylim = c(0, 1), 
+plot(df1$x, df1$y / sat1, cex = 2, pch=19, col = col_list[3], xlim = c(0, x_max), ylim = c(0, 1.5), 
 #plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, x_max), ylim = c(0, 1), 
 ###plot(df1$x, df1$y, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
 
