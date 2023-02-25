@@ -66,7 +66,7 @@ type = 'n',
 frame = FALSE, cex = 2, pch=19,
 tick = FALSE, 
 col = col1, 
-xlim = c(0, x_max), ylim = c(0, 1.5), 
+xlim = c(0, x_max), ylim = c(0, 1.6), 
 
 #plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, x_max), ylim = c(0, 1), 
 ###plot(df1$x, df1$y, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
@@ -80,12 +80,12 @@ ylab = 'Fractional Saturation (Tm/Actin)',
      cex.main = 1,
      cex.sub = 1)
 
-box(bty = "L", lwd = 4)
+box(bty = "L", lwd = 6)
 
 lines(x_axis, predict(fm1, newdata = list(x = x_axis)) / sat1, col = col1, lwd = 3)
 lines(x_axis, predict(fm2, newdata = list(x = x_axis)) / sat2, col = col2, lwd = 3)
 points(df2$x, df2$y / sat2, cex = 2.5, pch = 15, col = col2)
-points(df1$x, df1$y / sat2, cex = 2.3, pch = 19, col = col1)
+points(df1$x, df1$y / sat1, cex = 2.3, pch = 19, col = col1)
 
 #lines(x_axis, predict(fm1, newdata = list(x = x_axis)) , col = 2, lwd = 3)
 #lines(x_axis, predict(fm2, newdata = list(x = x_axis)) , col = 3, lwd = 3)
@@ -104,3 +104,8 @@ predict(fm1, newdata = list(x = c(0,1,2,3,4,5,6,7,8,9,11,44)))
 predict(fm2, newdata = list(x = c(0,1,2,3,4,5,6,7,8,9,11,44)))
 sat1
 sat2
+
+score = (km1 - km2) / sqrt(sekm1 * sekm1 + sekm2 * sekm2)
+pnorm(score)
+ pnorm(-score) * 2
+ 
