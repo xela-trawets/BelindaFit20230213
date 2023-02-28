@@ -51,9 +51,8 @@ x_axis <- (1:100) * x_max * 0.01
 
 par(oma = c(2, 2, 2, 2))
 par(mar = c(6,6,1,1))
-par(tck = -0.02)
+par(tck = -0.02, lwd.ticks = 3)
 par(mgp = c(4, 1.6, 0))
-par(lwd.ticks = 3)
 
 col_list =  c("#00AFBB", "#E7B800", "#FC4E07", "#4169E1", "#F08080")
 col1 = col_list[4]
@@ -69,8 +68,9 @@ type = 'n',
 frame = FALSE, cex = 2, pch=19,
 #tick = 1, 
 col = col1, 
-xlim = c(0, x_max), ylim = c(0, 1.6), 
+xlim = c(0, x_max), ylim = c(0, 1.56), 
 
+lwd.ticks = 3,
 
 #plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, x_max), ylim = c(0, 1), 
 ###plot(df1$x, df1$y, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
