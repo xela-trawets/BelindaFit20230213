@@ -101,8 +101,7 @@ txt2 <- formatC(km2, digits = 4, format = "f")
 
 (km1 - km2) / sqrt(sekm1 * sekm1 + sekm2 * sekm2)
 
-legend("bottomright",
-# legend = c(txt1, txt2), col = c(2, 3), pch = 19, lwd = 3,
+legend("bottomright", legend = c("Tm1", "Tm2"), col = c(col1, col2), pch = c(19, 15), lwd = 3, cex =  2, bty = 'n')
 # title = "Tm data set")
 
 predict(fm1, newdata = list(x = c(0,1,2,3,4,5,6,7,8,9,11,44)))
