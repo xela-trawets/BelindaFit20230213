@@ -49,12 +49,15 @@ x_axis <- (1:100) * x_max * 0.01
 
 #x11()
 
-par(oma=c(2,2,2,2))
-par(mar=c(6,6,1,1))
+par(oma = c(2, 2, 2, 2))
+par(mar = c(6,6,1,1))
+par(tck = -0.02)
+par(mgp = c(4, 1.6, 0))
+par(lwd.ticks = 3)
 
 col_list =  c("#00AFBB", "#E7B800", "#FC4E07", "#4169E1", "#F08080")
-col1 = col_list[5]
-col2 = col_list[4]
+col1 = col_list[4]
+col2 = col_list[5]
 
 # plot(cx, cy, xaxt = "n")
 # axis(1, at = seq(0, 2, .5), labels = seq(0, 2, .5), lwd = 0, lwd.ticks = 1)
@@ -64,9 +67,10 @@ col2 = col_list[4]
 plot(df1$x, df1$y / sat1, 
 type = 'n',  
 frame = FALSE, cex = 2, pch=19,
-tick = FALSE, 
+#tick = 1, 
 col = col1, 
 xlim = c(0, x_max), ylim = c(0, 1.6), 
+
 
 #plot(df1$x, df1$y / sat1, pch = 19, col = 2, xlim = c(0, x_max), ylim = c(0, 1), 
 ###plot(df1$x, df1$y, pch = 19, col = 2, xlim = c(0, 5), ylim = c(0, 1.5), 
@@ -81,6 +85,7 @@ ylab = 'Fractional Saturation (Tm/Actin)',
      cex.sub = 1)
 
 box(bty = "L", lwd = 6)
+#axis(1,tck=-0.02,lwd.tick = 3)
 
 lines(x_axis, predict(fm1, newdata = list(x = x_axis)) / sat1, col = col1, lwd = 3)
 lines(x_axis, predict(fm2, newdata = list(x = x_axis)) / sat2, col = col2, lwd = 3)
@@ -96,7 +101,7 @@ txt2 <- formatC(km2, digits = 4, format = "f")
 
 (km1 - km2) / sqrt(sekm1 * sekm1 + sekm2 * sekm2)
 
-# legend("bottomright",
+legend("bottomright",
 # legend = c(txt1, txt2), col = c(2, 3), pch = 19, lwd = 3,
 # title = "Tm data set")
 
